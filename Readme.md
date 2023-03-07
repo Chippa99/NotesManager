@@ -4,7 +4,6 @@ To run, you need to install:
  * Postgresql:42.5.4
  * NodeJS:18.14.2
 
-==================================================================================
 Preparation for start
 ==================================================================================
 Create two databases:
@@ -22,8 +21,8 @@ Or if gradle not see environment variables, you can replace these variables in t
  * `resources/application.properties`
  * `resources/application-test.properties`
 
-==================================================================================
 Start
 ==================================================================================
 Move to project `frontend`, execute `npm install` and later execute `npm run build`
+
 Start commands: `./gradlew clean jar`, `./gradlew bootRun` to start project
