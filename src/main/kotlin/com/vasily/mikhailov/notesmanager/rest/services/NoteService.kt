@@ -40,7 +40,7 @@ class NoteService {
         return notesRepository.count()
     }
 
-    fun getAverageCharactersNumberInNotes(): Long {
+    fun getAverageCharactersNumberInNotes(): Long? {
         return notesRepository.getAverageCharactersNumberInNotes()
     }
 
@@ -48,7 +48,7 @@ class NoteService {
        return ChronoUnit.DAYS.between(LocalDateTime.now(), notesRepository.getFirstNoteDatetime())
     }
 
-    fun getCharactersNumberInLongestNote(): Long {
+    fun getCharactersNumberInLongestNote(): Long? {
         return notesRepository.getCharactersNumberInLongestNote()
     }
 }

@@ -34,7 +34,20 @@ dependencies {
 	testImplementation "org.assertj:assertj-core:${assertjVersion}"
 }
 
-tasks.withType(KotlinCompile) {
+tasks.register('copyFrontend', Copy) {
+	from("${rootProject.projectDir}/frontend/build")
+	into("${rootProject.projectDir}/src/main/resources/static/")
+}
+
+jar {
+	dependsOn(copyFrontend)
+}
+
+clean.doFirst {
+	delete "${rootProject.projectDir}/src/main/resources/static/"
+}
+
+tasks.withType(KotlinCompile).configureEach {
 	kotlinOptions {
 		freeCompilerArgs = ['-Xjsr305=strict']
 		jvmTarget = '17'

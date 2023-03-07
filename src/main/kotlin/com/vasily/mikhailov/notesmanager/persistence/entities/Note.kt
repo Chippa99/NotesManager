@@ -21,7 +21,7 @@ data class Note(
         var createDatetime: LocalDateTime = LocalDateTime.now(),
 
         @Column(name = "image_link", nullable = true)
-        val imageLink: String? = null
+        var imageLink: String? = null
 ) {
     constructor() : this(subject = "subj", body = "body")
 }

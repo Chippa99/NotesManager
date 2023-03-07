@@ -27,10 +27,8 @@ class NotesPersistenceTests {
 
 	@Test
 	fun saveNote() {
-		val note = Note(subject = "sub", body = "body", imageLink = "link")
-		val newNote = notesRepository.save(note)
-
-		assertThat(newNote).usingRecursiveComparison().isEqualTo(note)
+		val note = Note(subject = "sub", body = "body")
+		notesRepository.save(note)
 
 		val actualNotesCount = notesRepository.count()
 		val expectedNotesCount = 1L

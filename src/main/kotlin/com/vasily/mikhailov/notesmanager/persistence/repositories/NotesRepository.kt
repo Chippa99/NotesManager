@@ -9,11 +9,11 @@ import java.time.LocalDateTime
 @Repository
 interface NotesRepository : JpaRepository<Note, Long> {
     @Query(value = "SELECT SUM(LENGTH(note.body))/COUNT(*) FROM Note note")
-    fun getAverageCharactersNumberInNotes(): Long
+    fun getAverageCharactersNumberInNotes(): Long?
 
     @Query(value = "SELECT note.createDatetime from Note note ORDER BY note.createDatetime LIMIT 1")
-    fun getFirstNoteDatetime(): LocalDateTime
+    fun getFirstNoteDatetime(): LocalDateTime?
 
     @Query(value = "SELECT MAX(LENGTH(note.body)) FROM Note note")
-    fun getCharactersNumberInLongestNote(): Long
+    fun getCharactersNumberInLongestNote(): Long?
 }
