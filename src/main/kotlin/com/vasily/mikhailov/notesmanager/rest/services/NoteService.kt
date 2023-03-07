@@ -40,15 +40,18 @@ class NoteService {
         return notesRepository.count()
     }
 
-    fun getAverageCharactersNumberInNotes(): Long? {
-        return notesRepository.getAverageCharactersNumberInNotes()
+    fun getAverageCharactersNumberInNotes(): Long {
+        return notesRepository.getAverageCharactersNumberInNotes() ?: 0L
     }
 
     fun getDaysNumberSinceFirstNoteCreation(): Long {
-       return ChronoUnit.DAYS.between(LocalDateTime.now(), notesRepository.getFirstNoteDatetime())
+        return ChronoUnit.DAYS.between(
+                LocalDateTime.now(),
+                notesRepository.getFirstNoteDatetime() ?: LocalDateTime.now()
+        )
     }
 
-    fun getCharactersNumberInLongestNote(): Long? {
-        return notesRepository.getCharactersNumberInLongestNote()
+    fun getCharactersNumberInLongestNote(): Long {
+        return notesRepository.getCharactersNumberInLongestNote() ?: 0L
     }
 }

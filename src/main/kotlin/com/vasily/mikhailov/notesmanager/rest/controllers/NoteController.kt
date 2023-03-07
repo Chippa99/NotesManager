@@ -67,14 +67,14 @@ class NoteController(val noteService: NoteService) {
 
     @GetMapping("notes/max")
     fun getMaxChars(): Long {
-        val max = noteService.getCharactersNumberInLongestNote()!!
+        val max = noteService.getCharactersNumberInLongestNote()
         logger.info("Max chars $max have been sent")
         return max
     }
 
     @GetMapping("notes/average")
     fun getAverageChars(): Long {
-        val average = noteService.getAverageCharactersNumberInNotes()!!
+        val average = noteService.getAverageCharactersNumberInNotes()
         logger.info("Average chars $average have been sent")
         return average
     }
